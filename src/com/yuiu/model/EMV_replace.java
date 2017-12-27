@@ -122,7 +122,8 @@ public class EMV_replace {
                     	//FileReader fr=new FileReader(AimFolder+"\\"+file1.getName());
                     	//BufferedReader br=new BufferedReader(fr);
                     	File filePath = new File(AimFolder+"\\"+file.getName());
-                    	InputStreamReader isr = new InputStreamReader(new FileInputStream(filePath),"utf-8");
+                    	//InputStreamReader isr = new InputStreamReader(new FileInputStream(filePath),"utf-8");
+                    	InputStreamReader isr = new InputStreamReader(new FileInputStream(filePath));
                     	BufferedReader br = new BufferedReader(isr);                    	
                     	while((oneLine=br.readLine())!=null){  //每次读取 1 行
                     			if(oneLine.indexOf("<script")>-1){
@@ -151,9 +152,11 @@ public class EMV_replace {
 	private static String isScript(String oneLine) {
 		// TODO Auto-generated method stub
 		for(String file : files){
-			if(oneLine.indexOf(file)>-1){
-				String name = oneLine.substring(oneLine.indexOf(file),oneLine.indexOf(".",oneLine.indexOf(file)));
-				int start = oneLine.indexOf(file);
+			//oneLine = oneLine.toLowerCase();
+			//file = file.toLowerCase();
+			if(oneLine.toLowerCase().indexOf("/"+file.toLowerCase())>-1){
+				String name = oneLine.substring(oneLine.toLowerCase().indexOf(file.toLowerCase()),oneLine.toLowerCase().indexOf(".",oneLine.indexOf(file.toLowerCase())));
+				int start = oneLine.toLowerCase().indexOf(file.toLowerCase());
 				int end = oneLine.indexOf(mVersion);
 				String old =null;
 				if(oneLine.indexOf(mVersion)==-1){
@@ -163,12 +166,7 @@ public class EMV_replace {
 				}else{
 					 old = oneLine.substring(oneLine.indexOf(name), oneLine.indexOf(mVersion)+ mVersion.length());
 				}
-//				System.out.println(start+":"+end);
-//				System.out.println(oneLine);
-//				System.out.println(mVersion);
-//				System.out.println();
 //				String old = oneLine.substring(oneLine.indexOf(file), oneLine.indexOf(mVersion)+ mVersion.length());
-
 				String nEw = name + ".min.js?"+(Integer.parseInt(mVersion)+1);
 				//System.out.println(old+":"+nEw);
 				oneLine = oneLine.replace(old, nEw);

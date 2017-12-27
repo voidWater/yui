@@ -31,8 +31,8 @@ public class Dialog extends JDialog implements ActionListener{
 		con.add(done,"South");
 		
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-		int width = 200;
-		int height = 200;
+		int width = 300;
+		int height = 100;
 		this.setBounds(WindowUtil.getWith()/2,WindowUtil.getHeight()/2,width,height);
 		setResizable(false);
 		//con.setVisible(true);

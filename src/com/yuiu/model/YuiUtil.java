@@ -27,8 +27,8 @@ public class YuiUtil {
 	static List<String> delfiles = new ArrayList<String>();
 	//获取yui.jar路径
 	private  String getYuiPath(){		
-		return "E:\\yuitest\\yuicompress.jar";
-		//return  System.getProperty("user.dir")+"\\yuicompress.jar";
+		//return "E:\\yuitest\\yuicompress.jar";
+		return  System.getProperty("user.dir")+"\\yuicompress.jar";
 	}
 	
 	
@@ -137,6 +137,8 @@ public class YuiUtil {
 			}
 			
 		}
+		//java -jar E:\d\yui\yuicompress.jar --type js --charset utf-8 F:\wposjy\js\wssale.js -o F:\wposjy\js\wssale.min.js
+		//wsIndex,wspubpos,wsrpt,wssale,wslxc,wsset,wscheck,wsbind,index,sale,pub,pubpos,rpt,set,check,bind,calendar,fund,hydj,scan,gps,zjm
 		//后台信息
 		String[] res = sb.toString().split("\n");
 		Runtime runTime = Runtime.getRuntime();

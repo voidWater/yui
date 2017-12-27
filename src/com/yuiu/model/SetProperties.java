@@ -10,14 +10,14 @@ public class SetProperties {
 	private static PropertiesUtil p= new PropertiesUtil();
 	
 	//默认js列表
-	private String jsList = "index,sale,pub,pubpos,rpt,set,check,bind,calendar,fund,hydj,scan";
+	private String jsList = "wsIndex,wspubpos,wsrpt,wssale,wslxc,wsset,wscheck,wsbind,index,sale,pub,pubpos,rpt,set,check,bind,calendar,fund,hydj,scan,gps,zjm";
 	/**
 	 * 获得项目路径
 	 * @return
 	 */
 	private String getYuiSetPath(){ 
-		//return  System.getProperty("user.dir")+"\\yui_js.properties";
-		return "E:\\develop\\yui\\yui_js.properties";
+		return  System.getProperty("user.dir")+"\\yui_js.properties";
+		//return "E:\\develop\\yui\\yui_js.properties";
 	}
 	/**
 	 * 初始化配置文件,yui_js.properties
